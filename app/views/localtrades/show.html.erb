@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Buy:</b>
+  <%= @localtrade.buy %>
+</p>
+
+<p>
+  <b>Content type:</b>
+  <%= @localtrade.content_type %>
+</p>
+
+<p>
+  <b>Settlement period:</b>
+  <%= @localtrade.settlement_period %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @localtrade.price %>
+</p>
+
+<p>
+  <b>Volume:</b>
+  <%= @localtrade.volume %>
+</p>
+
+<p>
+  <b>Broker:</b>
+  <%= @localtrade.broker %>
+</p>
+
+<p>
+  <b>Trader:</b>
+  <%= @localtrade.trader %>
+</p>
+
+
+<%= link_to 'Edit', edit_localtrade_path(@localtrade) %> |
+<%= link_to 'Back', localtrades_path %>

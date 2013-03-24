@@ -1,0 +1,2 @@
+module LocaltradesHelper
+end

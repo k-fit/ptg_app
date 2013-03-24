@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  buy: 1
+  content_type: MyString
+  settlement_period: MyString
+  price: 1.5
+  volume: 1.5
+  broker: MyString
+  trader: MyString
+
+two:
+  buy: 1
+  content_type: MyString
+  settlement_period: MyString
+  price: 1.5
+  volume: 1.5
+  broker: MyString
+  trader: MyString
