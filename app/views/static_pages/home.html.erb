@@ -1,5 +1,11 @@
-<% provide(:title, 'Home') %>
-<h1>PTG LLC</h1>
-    <p>
-      This is the home page for the Kfit and PTG web app
-    </p>
+<div class="center hero-unit">
+  <h1>Welcome to the PTG Trading platform</h1>
+
+  <h2>
+  	This is the home page for PTG trade monitoring and reconcilliation platform.
+  </h2>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
