@@ -1,35 +1,13 @@
-<h1>Listing localtrades</h1>
+<% provide(:title, "Trades") %>
+<h1>Entered Trades</h1>
+<%= will_paginate %>
 
-<table>
-  <tr>
-    <th>Buy</th>
-    <th>Content type</th>
-    <th>Settlement period</th>
-    <th>Price</th>
-    <th>Volume</th>
-    <th>Broker</th>
-    <th>Trader</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<ul class="localtrades">
+  <%= render @localtrades %>
+</ul>
 
-<% @localtrades.each do |localtrade| %>
-  <tr>
-    <td><%= localtrade.buy %></td>
-    <td><%= localtrade.content_type %></td>
-    <td><%= localtrade.settlement_period %></td>
-    <td><%= localtrade.price %></td>
-    <td><%= localtrade.volume %></td>
-    <td><%= localtrade.broker %></td>
-    <td><%= localtrade.trader %></td>
-    <td><%= link_to 'Show', localtrade %></td>
-    <td><%= link_to 'Edit', edit_localtrade_path(localtrade) %></td>
-    <td><%= link_to 'Destroy', localtrade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<%= will_paginate %>
 
-<br />
-
-<%= link_to 'New Localtrade', new_localtrade_path %>
+<div class="trade_link">
+<%= link_to 'Submit a new trade', root_path %>
+</div>

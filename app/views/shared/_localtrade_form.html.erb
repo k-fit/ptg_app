@@ -1,0 +1,39 @@
+<%= form_for(@localtrade) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+  	<%= f.select :buy, [["Buy", true], ["Sell", false]], :include_blank => '--select Buy/Sell--' %>
+  </div>
+  <div class="field">
+  	<%= f.label :contract_type, :class => "localtrade_label" %>
+    <%= f.text_field :contract_type, :class => "localtrade_entry" %>
+  </div>
+  <div class="field">
+  	<%= f.label :volume, :class => "localtrade_label" %>
+    <%= f.text_field :volume, :class => "localtrade_entry" %>
+  </div>
+  <div class="field">
+  	<%= f.label :price, :class => "localtrade_label" %>
+    <%= f.text_field :price, :class => "localtrade_entry" %>
+  </div>
+  <div class="field">
+  	<%= f.label :settlement, :class => "localtrade_label" %>
+    <%= f.text_field :settlement, :class => "localtrade_entry" %>
+  </div>
+  <div class="field">
+  	<%= f.label :broker, :class => "localtrade_label" %>
+    <%= f.text_field :broker, :class => "localtrade_entry" %>
+  </div>
+  <div class="field">
+  	<%= f.label :trader, :class => "localtrade_label" %>
+    <%= f.text_field :trader, :class => "localtrade_entry" %>
+  </div>
+  <div class="field check">
+  	<%= f.label :commission, :class => "localtrade_label" %>
+    <%= f.check_box :commission, :class => "localtrade_entry" %>
+  </div>
+  <div class="field">
+  	<%= f.label :trade_date, :class => "localtrade_label" %>
+    <%= f.text_field :trade_date, value: Date.today, :class => "localtrade_entry" %>
+  </div>
+  <%= f.submit "Submit Trade", class: "btn btn-large btn-primary trade-submit" %>
+<% end %>

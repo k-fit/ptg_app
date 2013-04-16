@@ -16,6 +16,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:localtrades) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -127,6 +128,29 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+
+  describe "localtrade associations" do
+    before { @user.save }
+    let!(:older_localtrade) do 
+      FactoryGirl.create(:localtrade, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_localtrade) do
+      FactoryGirl.create(:localtrade, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right localtrades in the right order" do
+      @user.localtrades.should == [newer_localtrade, older_localtrade]
+    end
+
+    it "should not destroy associated microposts" do
+      localtrades = @user.localtrades.dup
+      @user.destroy
+      localtrades.should_not be_empty
+      localtrades.each do |localtrade|
+         Localtrade.find_by_id(localtrade.id).should_not be_nil
+      end
+    end
   end
 
 end

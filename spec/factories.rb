@@ -9,4 +9,17 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :localtrade do
+    buy true
+    contract_type "CU"
+    settlement "Apr-13"
+    volume 10.0
+    price 2.5
+    broker "IVG"
+    commission true
+    trader "Matt"
+    trade_date Date.today
+    user
+  end
 end

@@ -31,7 +31,7 @@ describe "Authentication" do
       before { sign_in user }
 
       it { should have_selector('title', text: user.name) }
-      it { should have_link('Users',    href: users_path) }
+      it { should have_link('Blotter',    href: localtrades_path) }
       it { should have_link('Profile', href: user_path(user)) }
       it { should have_link('Settings', href: edit_user_path(user)) }
       it { should have_link('Sign out', href: signout_path) }
@@ -47,6 +47,30 @@ describe "Authentication" do
 
     describe "for non-signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
+      let(:localtrade) { FactoryGirl.create(:localtrade) }
+
+      describe "in the Localtrades controller" do
+
+        describe "submitting to the create action" do
+          before { post localtrades_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete localtrade_path(FactoryGirl.create(:localtrade)) }
+          specify { response.should redirect_to(signin_path) }
+        end
+
+        describe "visiting the index page" do
+          before {visit localtrades_path }
+          it { should have_selector('title', text: 'Sign in')}
+        end
+
+        describe "visiting the edit localtrade" do
+          before {visit edit_localtrade_path(localtrade) }
+          it { should have_selector('title', text: 'Sign in')}
+        end
+      end
 
       describe "when attempting to visit a protected page" do
         before do

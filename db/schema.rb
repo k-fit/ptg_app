@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411041303) do
+ActiveRecord::Schema.define(:version => 20130414031825) do
+
+  create_table "localtrades", :force => true do |t|
+    t.boolean  "buy"
+    t.string   "contract_type"
+    t.string   "settlement"
+    t.float    "volume"
+    t.float    "price"
+    t.string   "broker"
+    t.boolean  "commission"
+    t.string   "trader"
+    t.integer  "user_id"
+    t.date     "trade_date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "localtrades", ["user_id", "trade_date"], :name => "index_localtrades_on_user_id_and_trade_date"
 
   create_table "users", :force => true do |t|
     t.string   "name"

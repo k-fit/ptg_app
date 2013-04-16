@@ -1,18 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Buy:</b>
-  <%= @localtrade.buy %>
+  <% if @localtrade.buy %>
+    <b>Buy</b>
+  <% else %>
+    <b>Sell</b>
+  <% end %>
 </p>
 
 <p>
-  <b>Content type:</b>
-  <%= @localtrade.content_type %>
+  <b>Contract type:</b>
+  <%= @localtrade.contract_type %>
 </p>
 
 <p>
   <b>Settlement period:</b>
-  <%= @localtrade.settlement_period %>
+  <%= @localtrade.settlement %>
 </p>
 
 <p>
@@ -33,6 +36,16 @@
 <p>
   <b>Trader:</b>
   <%= @localtrade.trader %>
+</p>
+
+<p>
+  <b>Created At:</b>
+  <%= @localtrade.created_at %>
+</p>
+
+<p>
+  <b>Created By:</b>
+  <%= @localtrade.user.name %>
 </p>
 
 

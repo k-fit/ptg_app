@@ -1,0 +1,16 @@
+<li>
+  <span class="contract_type">Type: <%= localtrade.contract_type %></span>
+  <span class="settlement">Expiration: <%= localtrade.settlement %></span>
+  <span class="volume">Volume: <%= localtrade.volume %></span>
+  <span class="price">Price: <%= localtrade.price %></span>
+  <span class="trader">Trader: <%= localtrade.trader %></span>
+  <span class="broker">Broker: <%= localtrade.broker %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(localtrade.created_at) %> ago.
+  </span>
+  <%= link_to "view", localtrade %>
+  <%= link_to "delete", localtrade, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: localtrade.created_at %>
+  <%= link_to "edit", edit_localtrade_path(localtrade) %>
+</li>

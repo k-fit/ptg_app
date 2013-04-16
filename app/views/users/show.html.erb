@@ -9,5 +9,14 @@
       <h2><%= @user.email %></h2>
     </section>
   </aside>
+  <div class="span8">
+    <% if @user.localtrades.any? %>
+      <h3>Localtrades (<%= @user.localtrades.count %>)</h3>
+      <ol class="localtrades">
+        <%= render @localtrades %>
+      </ol>
+      <%= will_paginate @localtrades %>
+    <% end %>
+  </div>
 </div>
 </h1>

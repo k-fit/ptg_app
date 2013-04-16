@@ -189,3 +189,61 @@ input {
   }
 }
 
+/* localtrades */
+
+.localtrades {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.field {
+  display: block;
+  clear:both
+  field_with_errors {
+    width: 50%;
+    clear: none;
+    display: inline;
+  }
+}
+.localtrade_label {
+  float: left;
+  width: 50%;
+}
+.localtrade_entry {
+  width: 50%;
+
+}
+.broker {
+  display: block;
+}
+.price {
+  display: block;
+}
+.settlement {
+  display: block;
+}
+.trade-submit {
+  margin-top: 20px;
+  margin-left: 25%;
+}
+.contract_type {
+  display: block;
+}
+.timestamp {
+  color: $grayLight;
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
