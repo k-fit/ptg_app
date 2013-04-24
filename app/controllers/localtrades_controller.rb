@@ -12,12 +12,12 @@ class LocaltradesController < ApplicationController
   end
 
   def create
-    @localtrade = current_user.localtrades.build(params[:localtrade])
+    @localtrade = current_user.localtrades.build(params[:localtrades_form])
     if @localtrade.save
       flash[:success] = "Trade saved!"
-      redirect_to root_url
+      redirect_to new_localtrade_path
     else
-      render 'static_pages/home'
+      render 'new'
     end
   end
 
@@ -33,6 +33,10 @@ class LocaltradesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def new
+    @localtrade = current_user.localtrades.build()
   end
 
   def destroy

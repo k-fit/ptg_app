@@ -5,9 +5,11 @@
         <%= render 'shared/user_info' %>
       </section>
       <section>
-        <h2>Deal Ticket</h2>
-        <%= render 'shared/localtrade_form' %>
+            <%= link_to "Multi Trade", new_multitrade_path, class: "btn btn-large btn-info" %>
       </section>
+      <section>
+            <%= link_to "Single Trade", new_localtrade_path, class: "btn btn-large btn-info" %>
+      </section
     </aside>
   </div>  
 <% else %>

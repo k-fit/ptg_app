@@ -1,6 +1,7 @@
 PtgApp::Application.routes.draw do
   resources :users
   resources :localtrades
+  resources :multitrades, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'

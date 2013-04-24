@@ -5,8 +5,8 @@ class Localtrade < ActiveRecord::Base
   validates :user_id, presence: true
   validates :buy, :inclusion => {:in => [true, false]}
   validates :broker, presence: true
-  validates :contract_type, presence: true, :format => {:with => /CU|71|EH/ }
-  validates :commission, presence: true
+  validates :contract_type, presence: true
+  validates :commission, :inclusion => {:in => [true, false]}
   validates :price, presence: true, :numericality => { :greater_than => 0 }
   validates :volume, presence: true, :numericality => { :greater_than => 0 }
   validates :settlement, presence: true

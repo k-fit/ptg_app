@@ -34,13 +34,18 @@ describe "Localtrade pages" do
       before { fill_in 'localtrade_trader', with: "Test" }
       before { fill_in 'localtrade_trade_date', with: Date.today }
       
-      it "should create a micropost" do
+      it "should create a localtrade" do
         expect { click_button "Submit Trade" }.to change(Localtrade, :count).by(1)
       end
     end
+
+    describe "with multi-trade option" do
+      before { visit root_path(:multitrade_flag => 1)}
+      it { should have_content "Multi-Trade Ticket"}
+    end
   end
 
-  describe "micropost destruction" do
+  describe "localtrade destruction" do
     before { FactoryGirl.create(:localtrade, user: user) }
 
     describe "as correct user" do

@@ -1,0 +1,149 @@
+<%= form_for(@multitrade, :as => 'multitrades_form', :url => {:action => "create", :controller => "multitrades"}) do |f| %>
+  
+  <% if @multitrade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@multitrade.errors.count, "error") %> prohibited this trade from being saved:</h2>
+
+      <ul>
+      <% @multitrade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <table>
+    <tr>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.label :contract_type, nil, :class => "multitrade_label" %>
+          <%= f.select(:contract_type, ["CU", "71", "EH"], {:include_blank => "Select One"}, {:class => "multitrade_entry"}) %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.label :volume, nil, :class => "multitrade_label" %>
+          <%= f.text_field :volume, :class => "multitrade_entry" %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.label :price, nil, :class => "multitrade_label" %>
+          <%= f.text_field :price, :class => "multitrade_entry" %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.label :price2, nil, :class => "multitrade_label" %>
+          <%= f.text_field :price2, :class => "multitrade_entry" %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.label :broker, nil, :class => "multitrade_label" %>
+          <%= f.select(:broker, ["Advantage", "Atlas", "Blue Ocean", "ICAP", "IVG", "Progressive", "SCB", "Spectron", "Star Fuels", "Other"], {:include_blank => "Select One"}, :class => "multitrade_entry") %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.label :trader, nil, :class => "multitrade_label" %>
+          <%= f.text_field :trader, :class => "multitrade_entry" %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field check">
+          <%= f.label 'commission', nil, :class => "multitrade_label" %>
+          
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class = "field">
+          <%= f.check_box :commission, :class => "multitrade_label" %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.select(:buy1, [["Buy", true], ["Sell", false]], {:include_blank => "--select Buy/Sell--" }) %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.label  :settlement1, nil, :class => "multitrade_label" %>
+          <%= f.text_field :settlement1, :class => "multitrade_entry" %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.select(:buy2, [["Buy", true], ["Sell", false]], {:include_blank => "--select Buy/Sell--" }) %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.label  :settlement2, nil, :class => "multitrade_label" %>
+          <%= f.text_field :settlement2, :class => "multitrade_entry" %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.select(:buy3, [["Buy", true], ["Sell", false]], {:include_blank => "--select Buy/Sell--" }) %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.label  :settlement3, nil, :class => "multitrade_label" %>
+          <%= f.text_field :settlement3, :class => "multitrade_entry" %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.select(:buy4, [["Buy", true], ["Sell", false]], {:include_blank => "--select Buy/Sell--" }) %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.label  :settlement4, nil, :class => "multitrade_label" %>
+          <%= f.text_field :settlement4, :class => "multitrade_entry" %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.select(:buy5, [["Buy", true], ["Sell", false]], {:include_blank => "--select Buy/Sell--" }) %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.label  :settlement5, nil, :class => "multitrade_label" %>
+          <%= f.text_field :settlement5, :class => "multitrade_entry" %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.select(:buy6, [["Buy", true], ["Sell", false]], {:include_blank => "--select Buy/Sell--" }) %>
+        </div>
+      </td>
+      <td class = "form_elt">
+        <div class="field">
+          <%= f.label  :settlement6, nil, :class => "multitrade_label" %>
+          <%= f.text_field :settlement6, :class => "multitrade_entry" %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class = "form_elt">
+        <div class="field">
+         <%= f.label :trade_date, nil, :class => "multitrade_label" %>
+         <%= f.text_field :trade_date, :value => Date.today, :class => "multitrade_entry" %>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <%= f.submit "Submit Trades", class: "btn btn-large btn-primary trade-submit" %>
+<% end %>

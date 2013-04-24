@@ -1,5 +1,16 @@
-<%= form_for(@localtrade) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<%= form_for(@localtrade, :as => 'localtrades_form', :url => {:action => "create", :controller => "localtrades"}) do |f| %>
+
+  <% if @localtrade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@localtrade.errors.count, "error") %> prohibited this trade from being saved:</h2>
+
+      <ul>
+      <% @localtrade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="field">
   	<%= f.select :buy, [["Buy", true], ["Sell", false]], :include_blank => '--select Buy/Sell--' %>
   </div>
