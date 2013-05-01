@@ -1,6 +1,9 @@
 PtgApp::Application.routes.draw do
+  get "clearports/new"
+
   resources :users
   resources :localtrades
+  resources :clearports
   resources :multitrades, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
 

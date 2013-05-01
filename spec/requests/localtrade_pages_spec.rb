@@ -8,7 +8,7 @@ describe "Localtrade pages" do
   before { sign_in user }
 
   describe "localtrade creation" do
-    before { visit root_path }
+    before { visit new_localtrade_path }
 
     describe "with invalid information" do
 
@@ -24,24 +24,25 @@ describe "Localtrade pages" do
 
     describe "with valid information" do
 
-      before { fill_in 'localtrade_volume', with: 10 }
-      before { fill_in 'localtrade_price', with: 2.34 }
-      before { fill_in 'localtrade_broker', with: "IVG" }
-      before { fill_in 'localtrade_contract_type', with: "CU" }
+      before { fill_in 'localtrades_form_volume', with: 10 }
+      before { fill_in 'localtrades_form_price', with: 2.34 }
+      before { select "IVG", :from => 'localtrades_form_broker' }
+      before { select "CU", :from => 'localtrades_form_contract_type' }
       before { select 'Buy' }
-      before { fill_in 'localtrade_settlement', with: "Apr-14" }
-      before { check 'localtrade_commission' }
-      before { fill_in 'localtrade_trader', with: "Test" }
-      before { fill_in 'localtrade_trade_date', with: Date.today }
+      before { fill_in 'localtrades_form_settlement', with: "Apr-14" }
+      before { check 'localtrades_form_commission' }
+      before { fill_in 'localtrades_form_trader', with: "Test" }
+      before { fill_in 'localtrades_form_trade_date', with: Date.today }
       
       it "should create a localtrade" do
         expect { click_button "Submit Trade" }.to change(Localtrade, :count).by(1)
       end
     end
 
-    describe "with multi-trade option" do
-      before { visit root_path(:multitrade_flag => 1)}
-      it { should have_content "Multi-Trade Ticket"}
+    describe "Home page has links" do
+      before { visit root_path}
+      it { should have_content "Multi Trade"}
+      it { should have_content "Single Trade"}
     end
   end
 

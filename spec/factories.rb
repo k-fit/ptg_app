@@ -22,4 +22,23 @@ FactoryGirl.define do
     trade_date Date.today
     user
   end
+
+  factory :clearport do
+    trade_id "123456"
+    report_id "234567"
+    execution_id "345678"
+    trade_match_id "456789"
+    trade_date "04-20-2012"
+    trade_type 1
+    instrument_id "1"
+    sec_type "abc"
+    future_month "Apr-14"
+    report_side 0
+    price 2.45
+    quantity 10.0
+    quantity_type "1"
+    CME_broker "advantage_trades"
+    broker "advantage"
+    trader "Joe"
+  end
 end

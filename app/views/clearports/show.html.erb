@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>ClearPort Trade</h1>
+
+<p>
+  <% if @clearport.report_side == 0 %>
+    <b>Buy</b>
+  <% else %>
+    <b>Sell</b>
+  <% end %>
+</p>
+
+<p>
+  <b>Contract Type:</b>
+  <%= @clearport.trade_type %>
+</p>
+
+<p>
+  <b>Settlement Period:</b>
+  <%= @clearport.future_month %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @clearport.price %>
+</p>
+
+<p>
+  <b>Volume:</b>
+  <%= @clearport.quantity %>
+</p>
+
+<p>
+  <b>Broker:</b>
+  <%= @clearport.broker %>
+</p>
+
+<p>
+  <b>Clearport Trade Match ID:</b>
+  <%= @clearport.trade_match_id %>
+</p>
+
+<p>
+  <b>Trader:</b>
+  <%= @clearport.trader %>
+</p>
+
+<p>
+  <b>Created At:</b>
+  <%= @clearport.created_at %>
+</p>
+
+<%= link_to 'Show', @clearport %> 
+<%= link_to 'Back', clearports_path %>
+

@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414031825) do
+ActiveRecord::Schema.define(:version => 20130424042108) do
+
+  create_table "clearports", :force => true do |t|
+    t.string   "trade_id"
+    t.string   "report_id"
+    t.string   "execution_id"
+    t.string   "trade_match_id"
+    t.string   "trade_date"
+    t.integer  "trade_type"
+    t.string   "instrument_id"
+    t.string   "sec_type"
+    t.string   "future_month"
+    t.integer  "report_side"
+    t.float    "price"
+    t.float    "quantity"
+    t.string   "quantity_type"
+    t.string   "CME_broker"
+    t.string   "broker"
+    t.string   "trader"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "localtrades", :force => true do |t|
     t.boolean  "buy"

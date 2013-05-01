@@ -2,16 +2,19 @@
 #
 # Table name: localtrades
 #
-#  id                :integer          not null, primary key
-#  buy               :integer
-#  content_type      :string(255)
-#  settlement_period :string(255)
-#  price             :float
-#  volume            :float
-#  broker            :string(255)
-#  trader            :string(255)
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
+#  id            :integer          not null, primary key
+#  buy           :boolean
+#  contract_type :string(255)
+#  settlement    :string(255)
+#  volume        :float
+#  price         :float
+#  broker        :string(255)
+#  commission    :boolean
+#  trader        :string(255)
+#  user_id       :integer
+#  trade_date    :date
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 
 require 'test_helper'

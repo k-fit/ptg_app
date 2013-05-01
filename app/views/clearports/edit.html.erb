@@ -1,0 +1,77 @@
+<% provide(:title, "Correct Trade") %> 
+<h1>Update Trade</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@clearport) do |f| %>
+      <%= render 'shared/error_messages', object: f.object%>
+
+      <div class="field">
+    	<%= f.label :trade_id %><br />
+    	<%= f.text_field :trade_id %>
+  	  </div>
+	  <div class="field">
+	    <%= f.label :report_id %><br />
+	    <%= f.text_field :trade_id %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :execution_id %><br />
+	    <%= f.text_field :execution_id %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :trade_match_id %><br />
+	    <%= f.text_field :trade_match_id %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :trade_date %><br />
+	    <%= f.text_field :trade_date %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :instrument_id %><br />
+	    <%= f.text_field :instrument_id %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :sec_type %><br />
+	    <%= f.text_field :sec_type %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :future_month %><br />
+	    <%= f.text_field :future_month %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :report_side %><br />
+	    <%= f.text_field :report_side %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :price %><br />
+	    <%= f.text_field :price %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :quantity %><br />
+	    <%= f.text_field :quantity %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :quantity_type %><br />
+	    <%= f.text_field :quantity_type %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :CME_broker %><br />
+	    <%= f.text_field :CME_broker %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :broker %><br />
+	    <%= f.text_field :broker %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :trader %><br />
+	    <%= f.text_field :trader %>
+	  </div>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+    
+  </div>
+</div>
+
+<%= link_to 'Show', @clearport %> |
+<%= link_to 'Back', clearports_path %>

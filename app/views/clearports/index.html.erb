@@ -1,0 +1,9 @@
+<% provide(:title, "ClearPort Trades") %>
+<h1>Submitted Trades</h1>
+<%= will_paginate %>
+
+<ul class="clearports">
+  <%= render @clearports %>
+</ul>
+
+<%= will_paginate %>

@@ -1,0 +1,16 @@
+<li>
+  <span class="contract_type">Type: <%= clearport.instrument_id %></span>
+  <span class="settlement">Expiration: <%= clearport.future_month %></span>
+  <span class="volume">Volume: <%= clearport.quantity %></span>
+  <span class="price">Price: <%= clearport.price %></span>
+  <span class="trader">Trader: <%= clearport.trader %></span>
+  <span class="broker">Broker: <%= clearport.broker %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(clearport.created_at) %> ago.
+  </span>
+  <%= link_to "view", clearport %>
+  <%= link_to "delete", clearport, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: clearport.created_at %>
+  <%= link_to "edit", edit_clearport_path(clearport) %>
+</li>
